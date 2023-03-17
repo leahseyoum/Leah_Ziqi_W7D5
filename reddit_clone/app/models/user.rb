@@ -5,6 +5,14 @@ class User < ApplicationRecord
     attr_reader :password
     before_validation :ensure_session_token
 
+    has_many :subs,
+        foreign_key: :moderator_id,
+        class_name: 'Sub'
+
+    has_many :posts,
+        foreign_key: :author_id,
+        class_name: 'Post'
+
     def password=(password)
         @password = password
         self.password_digest = BCrypt::Password.create(password)

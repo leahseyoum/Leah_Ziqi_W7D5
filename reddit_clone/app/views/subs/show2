@@ -1,0 +1,7 @@
+<% @sub.posts.each do |post| %>
+    <li>
+        <a href="#">
+            <%= post.title %>
+        </a>
+    </li>
+<% end %>
