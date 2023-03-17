@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
     def new
         @post = Post.new
+        @sub = Sub.find_by(id: params[:sub_id])
     end
 
     def create
@@ -30,6 +31,7 @@ class PostsController < ApplicationController
 
     def show
         @post = Post.find_by(id: params[:id])
+        @author = User.find_by(id: @post.author_id)
         render :show
     end
 

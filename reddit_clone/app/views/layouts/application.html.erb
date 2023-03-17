@@ -11,6 +11,25 @@
 
   <body>
     <% if logged_in? %>
+      <ul>
+        <li>
+          <%= current_user.username %>
+        </li>
+
+        <li>
+          <a href="<%=new_sub_url%>">
+            Create a sub!
+          </a>
+        </li>
+
+        <li>
+          <a href="<%=subs_url%>">
+            All Subs
+          </a>
+        </li>
+      </ul>
+
+
       <form action="<%= session_url %>" method="post">
       <input type="hidden" 
       name="authenticity_token" 

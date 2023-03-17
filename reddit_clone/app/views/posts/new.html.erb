@@ -1,0 +1,29 @@
+<h1>New Post</h1>
+
+<form action="<%= posts_url %>" method="post">
+    <input type="hidden" 
+    name="authenticity_token" 
+    value="<%= form_authenticity_token %>">
+
+    <input type="hidden" 
+    name="post[sub_id]" 
+    value="<%= @sub.id %>">
+
+    <input type="hidden" 
+    name="post[author_id]" 
+    value="<%= current_user.id %>">
+
+    <label>Title:
+        <input type="text" name="post[title]">
+    </label>
+
+    <label>URL:
+        <input type="text" name="post[url]">
+    </label>
+
+    <label>Content:
+        <input type="text" name="post[content]">
+    </label>
+
+    <input type="submit" value="Post">
+</form>
